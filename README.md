@@ -21,8 +21,6 @@ This project is an alternative integration for Home Connect enabled home applian
       + [Installation](#installation)
 - [Configuration options](#configuration-options)
    * [Options settable in the UI](#options-settable-in-the-ui)
-      + [Regular options](#regular-options)
-      + [Advanced options](#advanced-options)
 - [Automation Notes](#automation-notes)
    * [Integration state](#integration-state)
    * [Services](#services)
@@ -112,8 +110,6 @@ Before installing the integration you need to create an "application" in the Hom
 Starting with version 0.7.0 the integration supports the UI configuration flow for most configuration options. Existing config values will be read however, once the options are saved in the UI they will override the values from the config file.
 
 ## Options settable in the UI
-### Regular options
-These options will show up for all users.
 * **Language** (optional - default = "en") - 
   Indicates the language to use for entity names and values. The translation is automatically loaded from the Home Connect service and must  be one of its [supported languages](https://api-docs.home-connect.com/general?#supported-languages).
 
@@ -131,8 +127,6 @@ These options will show up for all users.
   * Remote start has to be enabled for this feature to work.  
   * **This feature is still experimental and may have issues**
 
-### Advanced options
-These options will only show up when the user has enabled "Advanced mode" in the user profile.
 * **Name Template**  - 
   Defines the template used for rendering entity names. The following placeholders are supported and will be replaced dynamically when rendering the name:  
   $brand - The brand name of the appliance ("Bosch", "Siemens", etc.)  
@@ -147,8 +141,7 @@ These options will only show up when the user has enabled "Advanced mode" in the
   Define the timeout, in minutes, to renew the event stream connection with the HC server.  
   The default value of 15 minutes is designed to prevent situations of zombie streams that appear to be connected but don't receive events from HC.
 
-The following very advanced options can only be defined using YAML. Generally you should not change them unless you really know what you're doing.
-
+The following advanced options that can only be defined using YAML. Generally you should not change them unless you really know what you're doing.
 
 * **appliance_settings** (optional) - Overrides some settings for specific appliances.    
   This setting requires specifying the identifier (HAID) of the appliance. The easiest way to find it is to look at the entity ID of the "Connected" sensor of the appliance. 
