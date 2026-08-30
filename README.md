@@ -119,11 +119,11 @@ Starting with version 0.7.0 the integration supports the UI configuration flow f
   * **Server** - Sensor values are translated to friendly names using the Home Connect service. In this mode the internal values of string sensors will be translated and the translated values must be used in scripts referring to those sensors.
 
 * **Delayed start behavior (experimental)** - Sets the behavior of the delayed start UI.  <a name="handling-of-delayed-program-start"></a>  
-  By default the integration will use the standard delay method supported by the appliance. Typically this would be the delay time until the start of the program for dish washers and the delay time until the end of the program for washing machines and dryers. However, it can be annoying to have to work out the time to set instead of just setting and absolute time when the program should finish.  
-  Setting this option to "Absolute time" will replace the delay entity with a time entity that will always show the expected end time of the selected program. The value of this entity can be changed to set the desired end time for the program. 
+  By default the integration will use the standard delay method supported by the appliance. Typically this would be the delay time until the start of the program for dish washers and the delay time until the end of the program for washing machines and dryers. However, it can be annoying to have to work out how long the delay should be instead of just setting the clock time you want.  
+  Setting this option to "Absolute time" replaces the delay entity with a time entity. Instead of working out how long the delay should be, you simply set the clock time you want - depending on your appliance this is either the time the program should **start** or the time it should **finish** (for example, dish washers usually let you choose when the program starts, while washing machines and dryers let you choose when it finishes). Set the time and the appliance is scheduled accordingly when you start the program.  
   **Notes:**  
   * The time will always be interpreted as a future time so anything earlier than "now" will be interpreted as tomorrow.  
-  * The time can't be set for something closer than the duration of the selected program.  
+  * When no delay is scheduled the time entity shows "unknown". Set a time to schedule a delayed start/finish, and use the accompanying "Cancel delayed start" button to clear it.  
   * Remote start has to be enabled for this feature to work.  
   * **This feature is still experimental and may have issues**
 
