@@ -396,7 +396,7 @@ def register_events_publisher(hass:HomeAssistant, homeconnect:HomeConnect):
             last_event['key'] = key
             last_event['value'] = value
             haid = appliance.normalized_haId
-            device = device_reg.async_get_device({(DOMAIN, haid)})
+            device = device_reg.async_get_device_by_identifier((DOMAIN, haid))
             if not device:
                 haid = EntityBase.get_safe_haID(hass, appliance)
                 device = device_reg.async_get_device({(DOMAIN, haid)})
